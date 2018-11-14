@@ -15,25 +15,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
+
 import app.biblion.R;
 import app.biblion.fragment.ArticlesFragment;
 import app.biblion.fragment.BibleBookFragment;
 import app.biblion.fragment.ELibraryFragment;
-import app.biblion.fragment.HomeFragment;
+import app.biblion.fragment.HomeBookFragment;
 import app.biblion.fragment.QuizFragment;
 import app.biblion.fragment.SongBookFragment;
 
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static final String TAG = "NavigationActivity";
     Toolbar toolbar;
     FloatingActionButton fab;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
     FragmentTransaction fragmentTransaction;
-
+    BottomBar bottomBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,7 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     private void initialization() {
-
+         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -61,6 +64,40 @@ public class NavigationActivity extends AppCompatActivity
         toggle.syncState();
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        bottomNavigation();
+    }
+
+    private void bottomNavigation() {
+
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(int tabId) {
+                Fragment fragment = null;
+                switch (tabId) {
+                    case R.id.tab_home:
+                        fragment = new HomeBookFragment();
+                        break;
+                    case R.id.tab_quiz:
+                        fragment = new QuizFragment();
+                        break;
+                    case R.id.tab_song_book:
+                        fragment = new SongBookFragment();
+                        break;
+                    case R.id.tab_elibrary:
+                        fragment = new ELibraryFragment();
+                        break;
+                    case R.id.tab_articles:
+                        fragment = new ArticlesFragment();
+                        break;
+                }
+
+                if (fragment != null) {
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.contant_frame, fragment);
+                    ft.commit();
+                }
+            }
+        });
     }
 
     @Override
@@ -104,7 +141,7 @@ public class NavigationActivity extends AppCompatActivity
         Fragment fragment = null;
         switch (itemId) {
             case R.id.nav_home:
-                fragment = new HomeFragment();
+                fragment = new HomeBookFragment();
                 break;
             case R.id.nav_bible_book:
                 fragment = new BibleBookFragment();

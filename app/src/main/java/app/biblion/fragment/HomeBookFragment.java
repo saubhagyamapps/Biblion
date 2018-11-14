@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import app.biblion.R;
 
 
-public class HomeFragment extends Fragment {
+public class HomeBookFragment extends Fragment {
     View mView;
 
     @Nullable
