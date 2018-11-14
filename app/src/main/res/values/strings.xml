@@ -7,4 +7,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
+    <string name="bible_book">Bible Book</string>
+    <string name="quiz">Quiz</string>
+    <string name="song_book">Song Book</string>
+    <string name="elibary">E Liabary</string>
+    <string name="articles">Articles</string>
+    <string name="settings">Settings</string>
 </resources>
