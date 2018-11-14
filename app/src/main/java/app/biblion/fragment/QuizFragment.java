@@ -1,4 +1,4 @@
-package app.biblion.activity;
+package app.biblion.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 import app.biblion.R;
 
 
-public class BibleBookFragment extends Fragment {
+public class QuizFragment extends Fragment {
     View mView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.bible_book_fragment, container, false);
-        getActivity().setTitle("Bible Book");
+        mView = inflater.inflate(R.layout.quiz_fragment, container, false);
+        getActivity().setTitle("Quiz");
         return mView;
     }
 }

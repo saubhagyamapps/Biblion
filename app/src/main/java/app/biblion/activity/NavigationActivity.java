@@ -16,6 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import app.biblion.R;
+import app.biblion.fragment.ArticlesFragment;
+import app.biblion.fragment.BibleBookFragment;
+import app.biblion.fragment.ELibraryFragment;
+import app.biblion.fragment.HomeFragment;
+import app.biblion.fragment.QuizFragment;
+import app.biblion.fragment.SongBookFragment;
 
 
 public class NavigationActivity extends AppCompatActivity

@@ -1,4 +1,4 @@
-package app.biblion.activity;
+package app.biblion.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 import app.biblion.R;
 
 
-public class ArticlesFragment extends Fragment {
+public class HomeFragment extends Fragment {
     View mView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.articals_fragment, container, false);
-        getActivity().setTitle("Articles");
+        mView = inflater.inflate(R.layout.home_fragment, container, false);
+        getActivity().setTitle("Home");
         return mView;
     }
 }
