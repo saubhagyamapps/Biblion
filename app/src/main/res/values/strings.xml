@@ -18,4 +18,5 @@
         <a href="Terms and Condition links"><b>Terms &amp; Condition</b></a>
         and <a href="Privacy policy links"><b>Privacy Policy</b></a></string>
     <string name="login_links">Already have an account<a href="login link"><b> Login</b></a></string>
+    <string name="signup_links">Dont have an account <b>Signup</b></string>
 </resources>

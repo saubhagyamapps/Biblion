@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -20,7 +21,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText edtRFullname, edtRUsername,edtRBirtthdate, edtREmail, edtRpwd, edtRConfPwd;
     Button btnRegistration;
-     Calendar myCalendar;
+    Calendar myCalendar;
+    TextView txt_Login;
     RadioButton radioMale, radioFemale;
     DatePickerDialog.OnDateSetListener date;
     @Override
@@ -28,12 +30,23 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        btnRegistration=findViewById(R.id.btn_registration);
-        btnRegistrationClick();
+        edtRFullname =findViewById(R.id.edt_regfullname);
+        edtRUsername = findViewById(R.id.edt_username);
         edtRBirtthdate = findViewById(R.id.edt_birthdate);
-         myCalendar = Calendar.getInstance();
+        edtREmail = findViewById(R.id.edt_email);
+        edtRpwd =findViewById(R.id.edt_pwd);
+        edtRConfPwd = findViewById(R.id.edt_cnfpwd);
 
-       
+        btnRegistration=findViewById(R.id.btn_registration);
+
+        txt_Login = findViewById(R.id.txt_login_text);
+
+        radioMale = findViewById(R.id.radiobtn_male);
+        radioFemale = findViewById(R.id.radiobtn_female);
+
+        btnRegistrationClick();
+
+         myCalendar = Calendar.getInstance();
          date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -58,7 +71,13 @@ public class RegisterActivity extends AppCompatActivity {
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
-        
+        txt_Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
 
     }
 
